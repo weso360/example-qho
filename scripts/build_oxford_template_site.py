@@ -424,7 +424,14 @@ footer {
 }
 .oxford-breadcumb { background-image: url('../images/oxford/CB74BB07-B9DB-4FCF-A8DE-84E4DB27FF79_1_201_a-scaled.jpeg'); background-size: cover; background-position: center; }
 .oxford-slider .item { min-height: 760px; background-size: cover; background-position: center; }
-.oxford-slider .caption-1 { background: rgba(0,0,0,0.45); min-height: 760px; }
+.oxford-slider .caption-1 {
+    background-color: rgba(0,0,0,0.18) !important;
+    background-image: none !important;
+    min-height: 760px;
+}
+.oxford-slider .caption-1:after {
+    background: rgba(0,0,0,0.28) !important;
+}
 .oxford-slider .content { padding: 220px 0 180px; }
 .oxford-slider .content h2 { max-width: 820px; }
 .oxford-slider .content p { max-width: 760px; }
