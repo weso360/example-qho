@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script|Playfair+Display:400,700,900|Poppins:300,400,500,600,700');
+/*-------------------------------------
+    Template Name: Your template name 
+    Author: Webstrot
+    Version: 1.0
+---------------------------------------
+    
+    CSS INDEX
+    ===================
+	
+    1. Theme Default CSS (body, link color, section etc)
+    2. Header area start here
+    3. Slider area start here
+    4. About area start here
+    5. Blog area start here
+    6. Contact area start here
+    7. Footer area start here
+    8. Breadcumb area start here
+    9. Banner area start here
+    10. Team area start here
+    11. Price list area start here
+    12. Price area start here
+    13. Info area start here
+    14. Services area start here
+    15. Shop area start here
+    16. Testimonial area start here
+    17. Gallery area start here
+    18. Sidebar area start here
+
+---------------------------------------*/
+
+/*....................................
+1.Theme default CSS
+....................................*/
+$body-font: 'Poppins', sans-serif;
+$title-font: 'Playfair Display', serif;
+$second-font: 'Kaushan Script', cursive;
+$primary-color: #cf9c67;
+$transition: all 0.5s;
+html,
+body {
+  font-size: 14px;
+  color: #212121;
+  font-family: $body-font;
+  vertical-align: baseline;
+  line-height: 26px;
+  font-weight: 400;
+}
+
+
+
+
+
+
+/* ....................................
+1.1 Reset CSS 
+.......................................*/
+@import 'sass/defaults/_defaults.scss';
+
+
+
+/*....................................
+2. Header area start here
+....................................*/
+@import 'sass/header/_con.scss';
+
+
+/*....................................
+3. Slider area start here
+....................................*/
+@import 'sass/slider/_slider.scss';
+
+
+/*....................................
+4. About area start here
+....................................*/
+@import 'sass/about/_about.scss';
+
+
+/*....................................
+5. Blog area start here
+....................................*/
+@import 'sass/blog/_con.scss';
+
+
+
+/*....................................
+6. Contact area start here
+....................................*/
+@import 'sass/contact/_con.scss';
+
+
+/*....................................
+7. Footer area start here
+....................................*/
+@import 'sass/footer/_con.scss';
+
+
+/*....................................
+8. Breadcumb area start here
+....................................*/
+@import 'sass/breadcumb/_breadcumb.scss';
+
+
+
+/*....................................
+9. Banner area start here
+....................................*/
+@import 'sass/banner/_banner.scss';
+
+
+
+/*....................................
+10. Team area start here
+....................................*/
+@import 'sass/team/_team.scss';
+
+
+/*....................................
+11. Price list area start here
+....................................*/
+@import 'sass/price-list/_pricelist.scss';
+
+
+/*....................................
+12. Price area start here
+....................................*/
+@import 'sass/price/_price.scss';
+
+
+/*....................................
+13. Info area start here
+....................................*/
+@import 'sass/info/_info.scss';
+
+
+/*....................................
+14. Services area start here
+....................................*/
+@import 'sass/services/_services.scss';
+
+
+/*....................................
+15. Shop area start here
+....................................*/
+@import 'sass/shop/_shop.scss';
+
+
+/*....................................
+16. Testimonial area start here
+....................................*/
+@import 'sass/testimonial/_testimonial.scss';
+
+
+/*....................................
+17. Gallery area start here
+....................................*/
+@import 'sass/gallery/_gallery.scss';
+
+
+/*....................................
+18. Sidebar area start here
+....................................*/
+@import 'sass/sidebar/_sidebar.scss';

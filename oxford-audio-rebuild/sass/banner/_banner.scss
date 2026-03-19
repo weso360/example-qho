@@ -1,0 +1,121 @@
+.banner-area{
+	background: $primary-color;
+	display: block;
+	padding: 95px 0;
+	.content-ban{
+		display: block;
+		overflow: hidden;
+		vertical-align: middle;
+		h2{
+			color: #fff;
+			margin: 0;
+			display: inline-block;
+			img{
+				display: inline-block;
+				margin-top: -8px;
+				padding-right: 10px;
+			}
+			span{
+				font-family: $title-font;
+				font-size: 40px;
+				font-weight: 400;
+				display: inline-block;
+			}
+			strong{
+				text-decoration: underline;
+				text-transform: uppercase;
+				font-size: 40px;
+				font-weight: 700;
+				display: inline-block;
+				transition: $transition;
+				&:hover{
+					color:#212121;
+				}
+			}
+		}
+		a{
+			float: right;
+		}
+	}
+}
+.banner-area-two{
+	display: block;
+	background: url(images/about/bg-2.jpg);
+	padding-top: 95px;
+	&.pd-t0{
+		padding-top: 0 !important;
+	}
+	.banner-img{
+		img{
+			width: 100%;
+		}
+	}
+	.banner-con{
+		display: block;
+		padding-top: 160px;
+		h2{
+			font-size: 40px;
+			font-family: $title-font;
+			font-weight: 400;
+			color: #212121;
+			letter-spacing: 1px;
+			margin: 0 0 30px;
+		}
+		p{
+			font-size: 16px;
+			color: #797979;
+		}
+		a{
+
+		}
+	}
+}
+.counter-area{
+	background: url(images/counter/bg-1.jpg);
+	.counter-list{
+		text-align: center;
+		width: 20%;
+		display: inline-block;
+		float: left;
+		margin: 0 0 30px;
+		padding: 0 15px;
+		img{
+			display: inline-block;
+		}
+		span{
+			display: block;
+			font-weight: 500;
+			font-size: 40px;
+			padding: 20px 0;
+			color: $primary-color;
+		}
+		h4{
+			display: block;
+			font-family: $title-font;
+			font-style: italic;
+			color: #fff;
+			font-weight: 400;
+			margin: 0;
+		}
+	}
+}
+.brand-area{
+	display: block;
+	background: url(images/client/bg-1.jpg);
+	.brand-list{
+		a{
+			display: block;
+			width: 100%;
+			text-align: center;
+			line-height: 150px;
+			border:1px solid #eee;
+			background: #fff;
+			img{
+
+			}
+			&:hover{
+				border:1px solid $primary-color;
+			}
+		}
+	}
+}

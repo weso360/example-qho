@@ -1,0 +1,27 @@
+header{
+	.header-top{
+		.contact-info-top{
+			ul{
+				li{
+					padding-right: 26px;
+					line-height: 50px;
+					&:last-child{
+						padding-right:0;
+					}
+					&:first-child{
+						img{
+							margin-top: -4px;
+						}
+					}
+					img{
+						display: inline-block;
+						padding-right: 10px;
+					}
+					span{
+						color: #fff;
+					}
+				}
+			}
+		}
+	}
+}

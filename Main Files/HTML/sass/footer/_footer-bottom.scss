@@ -1,0 +1,48 @@
+footer{
+	.footer-bottom{
+		.top-link-button{
+			position: relative;
+			display: block;
+			&:after{
+				content:'';
+				position: absolute;
+				left: 0;
+				right: 0;
+				height: 1px;
+				background: #fff;
+				opacity: 0.1;
+				top: 48%;
+			}
+			a{
+				width: 35px;
+				height: 35px;
+				line-height: 35px;
+				background: #fff;
+				color: #212121;
+				transform: rotate(-45deg);
+				display: inline-block;
+				font-size: 18px;
+				z-index: 999;
+				position: relative;
+				i{
+					transform: rotate(45deg);
+				}
+				&:hover{
+					background: $primary-color;
+					color: #fff;
+				}
+			}
+		}
+		.copyright{
+			display: block;
+			padding: 45px 0 40px;
+			p{
+				color: #fff;
+				opacity: 0.5;
+				margin: 0;
+				display: block;
+				letter-spacing: 1px;
+			}
+		}
+	}
+}

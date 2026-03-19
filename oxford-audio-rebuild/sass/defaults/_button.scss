@@ -1,0 +1,220 @@
+/***Button***/
+.btn1{
+	display: inline-block;
+	position: relative;
+	line-height: 50px;
+	background: $primary-color;
+	font-weight: 600;
+	text-transform: uppercase;
+	color: #fff;
+	padding: 0 27px;
+	overflow: hidden;
+	vertical-align: middle;
+	&:before{
+		content: '';
+	    position: absolute;
+	    top: 0;
+	    bottom: 100%;
+	    left: 0;
+	    right: 100%;
+	    height:0;
+	    background: #212121;
+    	transition: $transition;
+	}
+	&:after{
+		content: '';
+	    position: absolute;
+	    top: 100%;
+	    bottom: 0;
+	    right: 0;
+	    left: 100%;
+	    height: 100%;
+	    background: #212121;
+    	transition: $transition;
+
+	}
+	&:hover{
+		&:before{
+			right:50%;
+			top: 0;
+	    	bottom: 0;
+	    	height: 100%;
+		}
+		&:after{
+			left:50%;
+			top: 0;
+	    	bottom: 0;
+		}
+	}
+	span{
+		position: relative;
+		z-index: 999;
+		color: #fff;
+	}
+}
+.btn2{
+	display: inline-block;
+	position: relative;
+	line-height: 50px;
+	background:#fff;
+	font-weight: 600;
+	text-transform: uppercase;
+	padding: 0 27px;
+	overflow: hidden;
+	vertical-align: middle;
+	&:before{
+		content: '';
+	    position: absolute;
+	    top: 0;
+	    bottom: 100%;
+	    left: 0;
+	    right: 100%;
+	    height:0;
+	    background: #212121;
+    	transition: $transition;
+	}
+	&:after{
+		content: '';
+	    position: absolute;
+	    top: 100%;
+	    bottom: 0;
+	    right: 0;
+	    left: 100%;
+	    height: 100%;
+	    background: #212121;
+    	transition: $transition;
+
+	}
+	span{
+		position: relative;
+		z-index: 999;
+		color: #212121;
+		transition: $transition;
+	}
+	&:hover{
+		&:before{
+			right:50%;
+			top: 0;
+	    	bottom: 0;
+	    	height: 100%;
+		}
+		&:after{
+			left:50%;
+			top: 0;
+	    	bottom: 0;
+		}
+		span{
+			color: #fff;
+		}
+	}
+}
+.btn3{
+	display: inline-block;
+	position: relative;
+	line-height: 50px;
+	background: #212121;
+	font-weight: 600;
+	text-transform: uppercase;
+	color: #fff;
+	padding: 0 27px;
+	overflow: hidden;
+	vertical-align: middle;
+	&:before{
+		content: '';
+	    position: absolute;
+	    top: 0;
+	    bottom: 100%;
+	    left: 0;
+	    right: 100%;
+	    height:0;
+	    background: $primary-color;
+    	transition: $transition;
+	}
+	&:after{
+		content: '';
+	    position: absolute;
+	    top: 100%;
+	    bottom: 0;
+	    right: 0;
+	    left: 100%;
+	    height: 100%;
+	    background: $primary-color;
+    	transition: $transition;
+
+	}
+	&:hover{
+		&:before{
+			right:50%;
+			top: 0;
+	    	bottom: 0;
+	    	height: 100%;
+		}
+		&:after{
+			left:50%;
+			top: 0;
+	    	bottom: 0;
+		}
+	}
+	span{
+		position: relative;
+		z-index: 999;
+		color: #fff;
+	}
+}
+.btn4{
+	display: inline-block;
+	position: relative;
+	line-height: 50px;
+	background: $primary-color;
+	font-weight: 600;
+	text-transform: uppercase;
+	color: #fff;
+	padding: 0 27px;
+	overflow: hidden;
+	vertical-align: middle;
+	&:before{
+		content: '';
+	    position: absolute;
+	    top: 0;
+	    bottom: 100%;
+	    left: 0;
+	    right: 100%;
+	    height:0;
+	    background: #fff;
+    	transition: $transition;
+	}
+	&:after{
+		content: '';
+	    position: absolute;
+	    top: 100%;
+	    bottom: 0;
+	    right: 0;
+	    left: 100%;
+	    height: 100%;
+	    background: #fff;
+    	transition: $transition;
+
+	}
+	&:hover{
+		&:before{
+			right:50%;
+			top: 0;
+	    	bottom: 0;
+	    	height: 100%;
+		}
+		&:after{
+			left:50%;
+			top: 0;
+	    	bottom: 0;
+		}
+		span{
+			color: #212121;
+		}
+	}
+	span{
+		position: relative;
+		z-index: 999;
+		color: #fff;
+		transition: $transition;
+	}
+}

@@ -1,0 +1,119 @@
+.slider-area{
+	.carousel-inner{
+		.item{
+			.carousel-captions{
+				top: 500px;
+				left: 0;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				background-position: center;
+				background-size: cover;
+				background-repeat: no-repeat;
+				background: url(images/slider/1.jpg);
+				position: relative;
+				&:after{
+					content:'';
+					position: absolute;
+					left: 0;
+					right: 0;
+					top: 0;
+					bottom: 0;
+					background:rgba(0, 0, 0, 0.8);
+				}
+				.content{
+					display: block;
+					padding: 430px 0 315px;
+					position: relative;
+					z-index: 999;
+					overflow: hidden;
+					vertical-align: middle;
+					h2{
+						color: #fff;
+						font-size: 60px;
+						font-family: $title-font;
+						font-weight: 400;
+						margin: 0 0 45px;
+						span{
+							color: $primary-color;
+						}
+					}
+					p{
+						font-size: 24px;
+						color: #fff;
+						margin: 0 0 50px;
+					}
+					a{
+
+					}
+				}
+					
+				&.caption-1{
+					
+				}
+				&.caption-2{
+					
+				}
+				&.caption-3{
+					
+				}
+			}
+		}
+		.carousel-indicators{
+			position: absolute;
+			left:inherit;
+			right: 0;
+			margin: 0;
+			list-style: none;
+			width: 0;
+			z-index: 9;
+			width: auto;
+			top: 52%;
+			li{
+				text-indent: 0;
+				position: relative;
+				height: 50px;
+				line-height: 50px;
+				background-color: transparent;
+				display: block;
+				border: none;
+				border-radius: 0;
+				width: 250px;
+				cursor: pointer;
+				font-size: 16px;
+				margin: 0;
+				color: #fff;
+				font-family: $body-font;
+				text-align: left;
+				background: rgba(33, 33, 33, 0.5);
+				padding: 0 30px;
+				span{
+					&.number{
+						display: inline-block;
+						padding-right: 15px;
+					}
+					&.con{
+						display: inline-block;
+						position: relative;
+						padding-left: 42px;
+						&:after{
+							content:'';
+							position: absolute;
+							left: 0;
+							top: 50%;
+							height: 1px;
+							background: $primary-color;
+							width: 26px;
+						}
+					}
+				}
+				&.active {
+					background: rgba(0, 0, 0, 0.5);
+				}
+				&:first-child {
+					margin-top: 0;
+				}
+			}
+		}
+	}
+}
