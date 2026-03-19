@@ -1,20 +1,108 @@
+:root {
+    --powershop-red: #b31317;
+    --powershop-red-bright: #d83a2f;
+    --powershop-red-soft: #c53a3e;
+    --powershop-red-tint: #f8e7e6;
+    --powershop-charcoal: #212121;
+}
 .powershop-logo,
 .powershop-footer-logo {
     align-items: center;
     display: flex;
-    min-height: 120px;
+    min-height: 96px;
+}
+.powershop-logo {
+    background: linear-gradient(135deg, var(--powershop-red) 0%, var(--powershop-red-bright) 100%);
+    justify-content: center;
+    padding: 0 24px;
 }
 .powershop-logo img,
 .powershop-footer-logo img {
     max-width: 100%;
 }
+.powershop-logo img {
+    max-height: 72px;
+    width: auto;
+}
+.powershop-footer-logo img {
+    max-height: 60px;
+    width: auto;
+}
+.header-top .social-media-area ul li a {
+    color: rgba(255, 255, 255, 0.75);
+}
+.header-top .social-media-area ul li a:hover,
+.header-top .social-media-area ul li a:focus {
+    color: #ffffff;
+}
 .social-media-area ul li a {
     color: #2f2f2f;
+}
+.contact-info-top ul li img {
+    filter: brightness(0) saturate(100%) invert(17%) sepia(86%) saturate(2705%) hue-rotate(350deg) brightness(94%) contrast(91%);
 }
 .menu-area nav ul li.active > a,
 .menu-area nav ul li > a:hover,
 .menu-area nav ul li > a:focus {
-    color: #c53a3e;
+    color: var(--powershop-red-soft);
+}
+.btn1 {
+    background: linear-gradient(135deg, var(--powershop-red) 0%, var(--powershop-red-bright) 100%);
+}
+.btn1:before,
+.btn1:after {
+    background: var(--powershop-charcoal);
+}
+.btn2 {
+    background: #fff;
+    border: 2px solid var(--powershop-red-soft);
+    line-height: 46px;
+}
+.btn2:before,
+.btn2:after {
+    background: linear-gradient(135deg, var(--powershop-red) 0%, var(--powershop-red-bright) 100%);
+}
+.btn2 span {
+    color: var(--powershop-red-soft);
+}
+.btn2:hover span {
+    color: #fff;
+}
+.section-heading-two h2:after {
+    display: none !important;
+}
+.section-heading-two h2 {
+    padding-bottom: 0;
+}
+header .main-header .logo-area a {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    line-height: 1 !important;
+    min-height: 96px;
+    padding-left: 0 !important;
+}
+header .main-header .menu-area {
+    display: flex;
+    min-height: 96px;
+}
+header .main-header .menu-area nav {
+    width: 100%;
+}
+header .main-header .menu-area nav ul {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 34px;
+    width: 100%;
+}
+header .main-header .menu-area nav ul li,
+header .main-header .menu-area nav ul li:last-child {
+    float: none;
+}
+header .main-header .menu-area nav ul li a {
+    line-height: 96px;
+    padding: 0 14px;
 }
 .powershop-breadcumb {
     background: linear-gradient(rgba(20, 20, 22, 0.74), rgba(20, 20, 22, 0.74)), url('../webpics/Large Images/workshop.jpg') center/cover no-repeat;
@@ -33,7 +121,7 @@
     background: linear-gradient(90deg, rgba(18, 18, 18, 0.88) 0%, rgba(18, 18, 18, 0.55) 52%, rgba(18, 18, 18, 0.2) 100%) !important;
 }
 .powershop-hero .content {
-    padding: 180px 0 140px;
+    padding: 350px 0 140px;
 }
 .powershop-hero .content h2 {
     color: #fff;
@@ -41,6 +129,14 @@
     line-height: 1.08;
     margin-bottom: 24px;
     max-width: 720px;
+}
+.powershop-hero .btn-area {
+    margin-top: 34px;
+}
+.powershop-hero .btn-area .btn1,
+.powershop-hero .btn-area .btn2 {
+    margin-right: 14px;
+    padding: 0 6px;
 }
 .powershop-home-intro,
 .powershop-richtext {
@@ -59,7 +155,7 @@
     padding-left: 20px;
 }
 .powershop-richtext a {
-    color: #c53a3e;
+    color: var(--powershop-red-soft);
 }
 .powershop-side-promo,
 .powershop-inline-hero,
@@ -77,7 +173,26 @@
 .powershop-inline-hero {
     margin-bottom: 40px;
 }
-.powershop-home-feature,
+.powershop-home-feature {
+    align-items: flex-start;
+    margin-top: -40px;
+}
+.powershop-home-copy-intro {
+    margin-bottom: 28px;
+}
+.powershop-home-copy-intro h2 {
+    color: #222;
+    font-family: "Playfair Display", serif;
+    font-size: 40px;
+    line-height: 1.15;
+    margin: 0 0 12px;
+}
+.powershop-home-copy-intro p {
+    color: #666;
+    font-size: 17px;
+    line-height: 1.75;
+    margin: 0;
+}
 .powershop-page-hero {
     align-items: center;
 }
@@ -108,6 +223,7 @@
     font-size: 24px;
     line-height: 1.25;
     margin: 0 0 16px;
+    min-height: 60px;
 }
 .powershop-service-card__body h3 a {
     color: #222;
@@ -116,11 +232,12 @@
     color: #5f5f5f;
     flex: 1 1 auto;
     margin: 0 0 24px;
+    min-height: 84px;
 }
 .powershop-callout {
     align-items: center;
     background: linear-gradient(135deg, #f4f1eb 0%, #ffffff 100%);
-    border-left: 6px solid #c53a3e;
+    border-left: 6px solid var(--powershop-red-soft);
     padding: 36px 28px;
 }
 .powershop-callout h2 {
@@ -131,6 +248,96 @@
     display: block;
     height: 480px;
     width: 100%;
+}
+.powershop-contact-panel {
+    background: #fff;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+    padding: 34px 32px;
+}
+.powershop-contact-block + .powershop-contact-block {
+    border-top: 1px solid #ececec;
+    margin-top: 28px;
+    padding-top: 28px;
+}
+.powershop-contact-block h3 {
+    color: #222;
+    font-family: "Playfair Display", serif;
+    font-size: 28px;
+    margin: 0 0 14px;
+}
+.powershop-contact-block p {
+    color: #5f5f5f;
+    font-size: 17px;
+    line-height: 1.75;
+    margin: 0 0 12px;
+}
+.powershop-resource-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.powershop-resource-list li {
+    border-bottom: 1px solid #ececec;
+    margin: 0;
+}
+.powershop-resource-list li:last-child {
+    border-bottom: 0;
+}
+.powershop-resource-list a {
+    color: #3c3c3c;
+    display: block;
+    font-size: 16px;
+    line-height: 1.55;
+    padding: 12px 0;
+}
+.powershop-resource-list a:hover,
+.powershop-resource-list a:focus {
+    color: var(--powershop-red-soft);
+}
+.services-area-one .services-list .icons,
+.services-area-two .services-list .icons {
+    border-color: var(--powershop-red-soft);
+}
+.services-area-one .services-list .icons:after,
+.services-area-two .services-list .icons:after {
+    background: var(--powershop-red-soft);
+}
+.services-area-one .services-list:hover .icons,
+.services-area-one .services-list .icons:hover,
+.services-area-two .services-list:hover .icons,
+.services-area-two .services-list .icons:hover {
+    background: var(--powershop-red-soft);
+}
+.services-area-one .services-list a,
+.services-area-one .services-list a i,
+.services-area-two .services-list a,
+.services-area-two .services-list a i {
+    color: var(--powershop-red-soft);
+}
+.powershop-form input:focus,
+.powershop-form textarea:focus {
+    border-color: var(--powershop-red-soft);
+    box-shadow: 0 0 0 3px var(--powershop-red-tint);
+    outline: 0;
+}
+.powershop-hours {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.powershop-hours li {
+    border-bottom: 1px solid #f0f0f0;
+    color: #5f5f5f;
+    display: flex;
+    font-size: 16px;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+.powershop-hours li:last-child {
+    border-bottom: 0;
+}
+.powershop-hours li strong {
+    color: #222;
 }
 .powershop-resource-box,
 .powershop-email-panel {
@@ -148,6 +355,12 @@
     min-height: 180px;
     resize: vertical;
 }
+.powershop-form-note {
+    color: #666;
+    font-size: 15px;
+    line-height: 1.7;
+    margin: 0 0 18px;
+}
 .powershop-credit {
     align-items: flex-end;
     display: flex;
@@ -159,11 +372,27 @@
     margin: 0;
 }
 .powershop-credit a {
-    color: #f0d4c0 !important;
+    color: var(--powershop-red-bright) !important;
+    font-weight: 600;
 }
 .footer-top,
 footer {
     background: linear-gradient(180deg, #141719 0%, #0d1012 100%) !important;
+}
+.footer-top .foo-about .content a,
+.footer-top .foo-link ul li a i,
+.footer-top .foo-link ul li a:hover span,
+.footer-top .foo-about ul li a:after,
+.footer-bottom .top-link-button a:hover {
+    color: var(--powershop-red-bright);
+}
+.footer-top .foo-about .content a,
+.footer-top .foo-link ul li a:hover span {
+    color: var(--powershop-red-bright) !important;
+}
+.footer-top .foo-about ul li a:after,
+.footer-bottom .top-link-button a:hover {
+    background: var(--powershop-red-bright) !important;
 }
 .foo-link ul li a,
 .foo-about .content a,
@@ -184,6 +413,9 @@ footer {
     .powershop-hero .content h2 {
         font-size: 42px;
     }
+    .powershop-hero .content {
+        padding-top: 300px;
+    }
     .powershop-credit {
         align-items: flex-start;
         text-align: left;
@@ -195,7 +427,7 @@ footer {
         min-height: 640px;
     }
     .powershop-hero .content {
-        padding: 140px 0 100px;
+        padding: 250px 0 100px;
     }
     .powershop-hero .content h2 {
         font-size: 34px;

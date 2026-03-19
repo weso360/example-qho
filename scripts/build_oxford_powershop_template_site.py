@@ -63,6 +63,57 @@ SERVICE_ORDER = [
     "kitchen-appliance-repairs.html",
 ]
 
+SERVICE_CARD_OVERRIDES = {
+    "hifi-repairs.html": {
+        "title": "Hi-Fi Repairs",
+        "excerpt": "Hi-fi separates, stereo systems, CD players, valve equipment and classic audio brands repaired and serviced.",
+    },
+    "record-player-repairs.html": {
+        "title": "Turntable & Record Player Repairs",
+        "excerpt": "Turntables, gramophones and record players serviced, repaired, calibrated, with stylus and belt support too.",
+    },
+    "amplifier-speaker-repairs.html": {
+        "title": "Amplifier & Speaker Repairs",
+        "excerpt": "Valve and solid-state amplifiers, speakers and classic hi-fi components diagnosed, repaired and serviced.",
+    },
+    "guitar-amplifier-repairs.html": {
+        "title": "Guitar Amplifier Repairs",
+        "excerpt": "Guitar amps, effects units and monitor speakers repaired and serviced for home, studio and stage use.",
+    },
+    "home-theatre-repairs.html": {
+        "title": "DVD & Home Cinema Repairs",
+        "excerpt": "DVD, Blu-ray and home cinema component repairs for playback faults, tray issues and other common problems.",
+    },
+    "dj-equipment-repairs.html": {
+        "title": "DJ Equipment Repairs",
+        "excerpt": "Decks, mixers, controllers and DJ headphones repaired and serviced for hobby and professional setups.",
+    },
+    "vacuum-cleaner-repairs.html": {
+        "title": "Vacuum Cleaner Repairs",
+        "excerpt": "Vacuum cleaners from Dyson, Miele, Sebo, Vax and other brands repaired, cleaned and restored to working order.",
+    },
+    "aerial-installations.html": {
+        "title": "Aerial Installations",
+        "excerpt": "New aerial installs, retuning, reception fault finding and digital TV setup for homes in the local area.",
+    },
+    "television-projector-repairs.html": {
+        "title": "Television & Projector Repairs",
+        "excerpt": "Older and modern televisions plus projectors diagnosed and repaired by experienced workshop engineers.",
+    },
+    "gaming-controller-repairs.html": {
+        "title": "Gaming Controller Repairs",
+        "excerpt": "Repairs for joysticks, steering wheels, pedals and other gaming or simulation controller hardware.",
+    },
+    "computer-monitor-repairs.html": {
+        "title": "Computer & Monitor Repairs",
+        "excerpt": "Computer and monitor diagnostics, repair and servicing for faults that need workshop attention.",
+    },
+    "kitchen-appliance-repairs.html": {
+        "title": "Kitchen Appliance Repairs",
+        "excerpt": "Repairs for toasters, coffee makers, food mixers and other small electrical household appliances.",
+    },
+}
+
 TOP_NAV = [
     ("Home", "index.html"),
     ("Repair Services", "services.html"),
@@ -189,7 +240,7 @@ def page_title(soup: BeautifulSoup) -> str:
 
 
 def page_heading(soup: BeautifulSoup) -> str | None:
-    heading = soup.select_one("#AboutUsHome h1, #location h1, #TechTalkLeft .NewsTitlesSMALL, #emailWRAPPER .NewsTitles")
+    heading = soup.select_one("#AboutUsHome h1, #AboutUsHome .mainTXTtitle, #location h1, #TechTalkLeft .NewsTitlesSMALL, #emailWRAPPER .NewsTitles")
     if heading:
         text = " ".join(heading.get_text(" ", strip=True).split())
         return text.strip(" -|") or None
@@ -231,6 +282,26 @@ def service_content_html(soup: BeautifulSoup, source_rel: str) -> str:
 def workshop_links_html(soup: BeautifulSoup) -> str:
     node = soup.select_one("#TechTalkLeft")
     return fragment_html(node, "pages/talk from the workshop.html")
+
+
+def workshop_links_items(soup: BeautifulSoup):
+    node = soup.select_one("#TechTalkLeft")
+    if not node:
+        return []
+    fragment = clean_fragment(node, "pages/talk from the workshop.html")
+    items = []
+    seen = set()
+    for anchor in fragment.find_all("a"):
+        href = anchor.get("href", "").strip()
+        text = " ".join(anchor.get_text(" ", strip=True).split())
+        if not href or not text:
+            continue
+        key = (text, href)
+        if key in seen:
+            continue
+        seen.add(key)
+        items.append({"text": text, "href": href})
+    return items
 
 
 def service_excerpt(html_text: str) -> str:
@@ -471,9 +542,8 @@ def build_home(home, services_cards) -> str:
             <div class="container">
                 <div class="row powershop-home-feature">
                     <div class="col-md-8 col-sm-12">
-                        <div class="section-heading-two">
+                        <div class="powershop-home-copy-intro">
                             <h2>Oxford Powershop Ltd</h2>
-                            <p>We specialise in repairing modern and vintage electrical appliances for domestic and commercial use.</p>
                         </div>
                         <div class="powershop-richtext">{home['intro_html']}</div>
                     </div>
@@ -594,11 +664,36 @@ def build_finding_us(page, services_cards) -> str:
                         </div>
                     </div>
                     <div class="col-md-5 col-sm-12">
-                        <div class="section-heading-two">
-                            <h2>Finding Us</h2>
-                            <p>{html.escape(page['description'])}</p>
+                        <div class="powershop-contact-panel">
+                            <div class="powershop-contact-block">
+                                <h3>Workshop Address</h3>
+                                <p><strong>Oxford Powershop Ltd.</strong><br>129-131 Mill Street<br>Kidlington, Oxfordshire<br>OX5 2EE</p>
+                                <p><strong>Telephone:</strong> 01865 375834</p>
+                                <p>There is parking outside the workshop.</p>
+                            </div>
+                            <div class="powershop-contact-block">
+                                <h3>Postal Service</h3>
+                                <p>If you are unable to visit the workshop, you may wish to use a courier service. We can return items with Parcel Force, or you can arrange your own courier.</p>
+                                <p>Please note that courier transport is at your own risk, although we pack items carefully for secure transit.</p>
+                            </div>
+                            <div class="powershop-contact-block">
+                                <h3>Inspection Fees & Payments</h3>
+                                <p>We charge an inspection fee to cover diagnosis and straightforward repairs. If the fault is more complicated or parts are required, we will quote you first.</p>
+                                <p><strong>Payment is by cash or bank transfer.</strong> We do not use a card machine.</p>
+                            </div>
+                            <div class="powershop-contact-block">
+                                <h3>Opening Hours</h3>
+                                <ul class="powershop-hours">
+                                    <li><span>Monday</span><strong>9:00 am - 4:00 pm</strong></li>
+                                    <li><span>Tuesday</span><strong>9:00 am - 4:00 pm</strong></li>
+                                    <li><span>Wednesday</span><strong>9:00 am - 4:00 pm</strong></li>
+                                    <li><span>Thursday</span><strong>9:00 am - 4:00 pm</strong></li>
+                                    <li><span>Friday</span><strong>9:00 am - 4:00 pm</strong></li>
+                                    <li><span>Saturday</span><strong>Closed</strong></li>
+                                    <li><span>Sunday</span><strong>Closed</strong></li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="powershop-richtext">{page['content_html']}</div>
                     </div>
                 </div>
             </div>
@@ -607,6 +702,10 @@ def build_finding_us(page, services_cards) -> str:
 
 
 def build_workshop(page, services_cards) -> str:
+    links_html = "".join(
+        f'<li><a href="{item["href"]}" target="_blank" rel="noreferrer noopener">{html.escape(item["text"])}</a></li>'
+        for item in page["links_items"]
+    )
     return head(page["title"], page["description"]) + header("knowledge-hub.html") + breadcrumb("Knowledge Hub") + f"""
         <section class="blog-area section">
             <div class="container">
@@ -617,16 +716,22 @@ def build_workshop(page, services_cards) -> str:
                 </div>
                 <div class="row">
                     <div class="col-md-7 col-sm-12">
-                        <div class="section-heading-two">
-                            <h2>{html.escape(page['title'])}</h2>
-                            <p>{html.escape(page['description'])}</p>
+                        <div class="powershop-contact-panel">
+                            <div class="powershop-contact-block">
+                                <h3>Knowledge Hub</h3>
+                                <p>Useful links, audio references and workshop resources gathered from the original Oxford Powershop site.</p>
+                                <p>It’s a handy jumping-off point for turntable setup, hi-fi brands, stylus support, vinyl care and broader audio research.</p>
+                            </div>
+                            <div class="powershop-contact-block">
+                                <h3>Workshop Notes</h3>
+                                <p>Oxford Powershop has long shared reference links for customers, hobbyists and audio enthusiasts. This page keeps that spirit, while presenting the list in a cleaner format.</p>
+                            </div>
                         </div>
-                        <div class="powershop-richtext">{page['content_html']}</div>
                     </div>
                     <div class="col-md-5 col-sm-12">
                         <div class="powershop-resource-box">
                             <h3>Useful Links</h3>
-                            <div class="powershop-richtext">{page['links_html']}</div>
+                            <ul class="powershop-resource-list">{links_html}</ul>
                         </div>
                     </div>
                 </div>
@@ -641,24 +746,54 @@ def build_email(page, services_cards) -> str:
             <div class="container">
                 <div class="row">
                     <div class="col-md-7 col-sm-12">
-                        <div class="section-heading-two">
-                            <h2>Email Us</h2>
-                            <p>{html.escape(page['description'])}</p>
-                        </div>
                         <div class="powershop-email-panel">
-                            <div class="powershop-richtext">{page['content_html']}</div>
+                            <div class="powershop-contact-block">
+                                <h3>Email Us</h3>
+                                <p>If you would like to get in touch about a repair, use the enquiry form below as a layout guide and then follow up by phone or by visiting the workshop.</p>
+                                <p>For the fastest response, it’s usually best to call <strong>01865 375834</strong> and speak directly to an engineer.</p>
+                            </div>
+                            <div class="powershop-contact-block">
+                                <h3>Before You Contact Us</h3>
+                                <p>It helps to include the make, model and a short description of the fault so the team can advise whether the item is suitable for inspection or repair.</p>
+                            </div>
                             <form class="powershop-form">
                                 <div class="row">
                                     <div class="col-sm-6"><input type="text" placeholder="Your name"></div>
-                                    <div class="col-sm-6"><input type="email" placeholder="Your email"></div>
-                                    <div class="col-sm-12"><textarea placeholder="Message"></textarea></div>
-                                    <div class="col-sm-12"><button type="button" class="btn1"><span>Email enquiries are not wired up in this static copy</span></button></div>
+                                    <div class="col-sm-6"><input type="email" placeholder="Your email address"></div>
+                                    <div class="col-sm-12"><input type="text" placeholder="Device make and model"></div>
+                                    <div class="col-sm-12"><textarea placeholder="Describe the fault or repair enquiry"></textarea></div>
+                                    <div class="col-sm-12">
+                                        <div class="powershop-form-note">This static copy does not send email. Please call 01865 375834 or visit the workshop for live enquiries.</div>
+                                        <button type="button" class="btn1"><span>Call The Workshop</span></button>
+                                    </div>
                                 </div>
                             </form>
                         </div>
                     </div>
                     <div class="col-md-5 col-sm-12">
-                        <div class="powershop-side-promo"><img src="webpics/Large Images/workshop.jpg" alt="Oxford Powershop workshop"></div>
+                        <div class="powershop-contact-panel">
+                            <div class="powershop-contact-block">
+                                <h3>Workshop Contact</h3>
+                                <p><strong>Oxford Powershop Ltd.</strong><br>129-131 Mill Street<br>Kidlington, Oxfordshire<br>OX5 2EE</p>
+                                <p><strong>Telephone:</strong> 01865 375834</p>
+                            </div>
+                            <div class="powershop-contact-block">
+                                <h3>Opening Hours</h3>
+                                <ul class="powershop-hours">
+                                    <li><span>Monday</span><strong>9:00 am - 4:00 pm</strong></li>
+                                    <li><span>Tuesday</span><strong>9:00 am - 4:00 pm</strong></li>
+                                    <li><span>Wednesday</span><strong>9:00 am - 4:00 pm</strong></li>
+                                    <li><span>Thursday</span><strong>9:00 am - 4:00 pm</strong></li>
+                                    <li><span>Friday</span><strong>9:00 am - 4:00 pm</strong></li>
+                                    <li><span>Saturday</span><strong>Closed</strong></li>
+                                    <li><span>Sunday</span><strong>Closed</strong></li>
+                                </ul>
+                            </div>
+                            <div class="powershop-contact-block">
+                                <h3>Prefer To Visit?</h3>
+                                <p>Drop in without appointment for inspections and repair enquiries during workshop hours.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -668,23 +803,111 @@ def build_email(page, services_cards) -> str:
 
 def build_css() -> str:
     return """
+:root {
+    --powershop-red: #b31317;
+    --powershop-red-bright: #d83a2f;
+    --powershop-red-soft: #c53a3e;
+    --powershop-red-tint: #f8e7e6;
+    --powershop-charcoal: #212121;
+}
 .powershop-logo,
 .powershop-footer-logo {
     align-items: center;
     display: flex;
-    min-height: 120px;
+    min-height: 96px;
+}
+.powershop-logo {
+    background: linear-gradient(135deg, var(--powershop-red) 0%, var(--powershop-red-bright) 100%);
+    justify-content: center;
+    padding: 0 24px;
 }
 .powershop-logo img,
 .powershop-footer-logo img {
     max-width: 100%;
 }
+.powershop-logo img {
+    max-height: 72px;
+    width: auto;
+}
+.powershop-footer-logo img {
+    max-height: 60px;
+    width: auto;
+}
+.header-top .social-media-area ul li a {
+    color: rgba(255, 255, 255, 0.75);
+}
+.header-top .social-media-area ul li a:hover,
+.header-top .social-media-area ul li a:focus {
+    color: #ffffff;
+}
 .social-media-area ul li a {
     color: #2f2f2f;
+}
+.contact-info-top ul li img {
+    filter: brightness(0) saturate(100%) invert(17%) sepia(86%) saturate(2705%) hue-rotate(350deg) brightness(94%) contrast(91%);
 }
 .menu-area nav ul li.active > a,
 .menu-area nav ul li > a:hover,
 .menu-area nav ul li > a:focus {
-    color: #c53a3e;
+    color: var(--powershop-red-soft);
+}
+.btn1 {
+    background: linear-gradient(135deg, var(--powershop-red) 0%, var(--powershop-red-bright) 100%);
+}
+.btn1:before,
+.btn1:after {
+    background: var(--powershop-charcoal);
+}
+.btn2 {
+    background: #fff;
+    border: 2px solid var(--powershop-red-soft);
+    line-height: 46px;
+}
+.btn2:before,
+.btn2:after {
+    background: linear-gradient(135deg, var(--powershop-red) 0%, var(--powershop-red-bright) 100%);
+}
+.btn2 span {
+    color: var(--powershop-red-soft);
+}
+.btn2:hover span {
+    color: #fff;
+}
+.section-heading-two h2:after {
+    display: none !important;
+}
+.section-heading-two h2 {
+    padding-bottom: 0;
+}
+header .main-header .logo-area a {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    line-height: 1 !important;
+    min-height: 96px;
+    padding-left: 0 !important;
+}
+header .main-header .menu-area {
+    display: flex;
+    min-height: 96px;
+}
+header .main-header .menu-area nav {
+    width: 100%;
+}
+header .main-header .menu-area nav ul {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 34px;
+    width: 100%;
+}
+header .main-header .menu-area nav ul li,
+header .main-header .menu-area nav ul li:last-child {
+    float: none;
+}
+header .main-header .menu-area nav ul li a {
+    line-height: 96px;
+    padding: 0 14px;
 }
 .powershop-breadcumb {
     background: linear-gradient(rgba(20, 20, 22, 0.74), rgba(20, 20, 22, 0.74)), url('../webpics/Large Images/workshop.jpg') center/cover no-repeat;
@@ -703,7 +926,7 @@ def build_css() -> str:
     background: linear-gradient(90deg, rgba(18, 18, 18, 0.88) 0%, rgba(18, 18, 18, 0.55) 52%, rgba(18, 18, 18, 0.2) 100%) !important;
 }
 .powershop-hero .content {
-    padding: 180px 0 140px;
+    padding: 350px 0 140px;
 }
 .powershop-hero .content h2 {
     color: #fff;
@@ -711,6 +934,14 @@ def build_css() -> str:
     line-height: 1.08;
     margin-bottom: 24px;
     max-width: 720px;
+}
+.powershop-hero .btn-area {
+    margin-top: 34px;
+}
+.powershop-hero .btn-area .btn1,
+.powershop-hero .btn-area .btn2 {
+    margin-right: 14px;
+    padding: 0 6px;
 }
 .powershop-home-intro,
 .powershop-richtext {
@@ -729,7 +960,7 @@ def build_css() -> str:
     padding-left: 20px;
 }
 .powershop-richtext a {
-    color: #c53a3e;
+    color: var(--powershop-red-soft);
 }
 .powershop-side-promo,
 .powershop-inline-hero,
@@ -747,7 +978,26 @@ def build_css() -> str:
 .powershop-inline-hero {
     margin-bottom: 40px;
 }
-.powershop-home-feature,
+.powershop-home-feature {
+    align-items: flex-start;
+    margin-top: -40px;
+}
+.powershop-home-copy-intro {
+    margin-bottom: 28px;
+}
+.powershop-home-copy-intro h2 {
+    color: #222;
+    font-family: "Playfair Display", serif;
+    font-size: 40px;
+    line-height: 1.15;
+    margin: 0 0 12px;
+}
+.powershop-home-copy-intro p {
+    color: #666;
+    font-size: 17px;
+    line-height: 1.75;
+    margin: 0;
+}
 .powershop-page-hero {
     align-items: center;
 }
@@ -778,6 +1028,7 @@ def build_css() -> str:
     font-size: 24px;
     line-height: 1.25;
     margin: 0 0 16px;
+    min-height: 60px;
 }
 .powershop-service-card__body h3 a {
     color: #222;
@@ -786,11 +1037,12 @@ def build_css() -> str:
     color: #5f5f5f;
     flex: 1 1 auto;
     margin: 0 0 24px;
+    min-height: 84px;
 }
 .powershop-callout {
     align-items: center;
     background: linear-gradient(135deg, #f4f1eb 0%, #ffffff 100%);
-    border-left: 6px solid #c53a3e;
+    border-left: 6px solid var(--powershop-red-soft);
     padding: 36px 28px;
 }
 .powershop-callout h2 {
@@ -801,6 +1053,96 @@ def build_css() -> str:
     display: block;
     height: 480px;
     width: 100%;
+}
+.powershop-contact-panel {
+    background: #fff;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+    padding: 34px 32px;
+}
+.powershop-contact-block + .powershop-contact-block {
+    border-top: 1px solid #ececec;
+    margin-top: 28px;
+    padding-top: 28px;
+}
+.powershop-contact-block h3 {
+    color: #222;
+    font-family: "Playfair Display", serif;
+    font-size: 28px;
+    margin: 0 0 14px;
+}
+.powershop-contact-block p {
+    color: #5f5f5f;
+    font-size: 17px;
+    line-height: 1.75;
+    margin: 0 0 12px;
+}
+.powershop-resource-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.powershop-resource-list li {
+    border-bottom: 1px solid #ececec;
+    margin: 0;
+}
+.powershop-resource-list li:last-child {
+    border-bottom: 0;
+}
+.powershop-resource-list a {
+    color: #3c3c3c;
+    display: block;
+    font-size: 16px;
+    line-height: 1.55;
+    padding: 12px 0;
+}
+.powershop-resource-list a:hover,
+.powershop-resource-list a:focus {
+    color: var(--powershop-red-soft);
+}
+.services-area-one .services-list .icons,
+.services-area-two .services-list .icons {
+    border-color: var(--powershop-red-soft);
+}
+.services-area-one .services-list .icons:after,
+.services-area-two .services-list .icons:after {
+    background: var(--powershop-red-soft);
+}
+.services-area-one .services-list:hover .icons,
+.services-area-one .services-list .icons:hover,
+.services-area-two .services-list:hover .icons,
+.services-area-two .services-list .icons:hover {
+    background: var(--powershop-red-soft);
+}
+.services-area-one .services-list a,
+.services-area-one .services-list a i,
+.services-area-two .services-list a,
+.services-area-two .services-list a i {
+    color: var(--powershop-red-soft);
+}
+.powershop-form input:focus,
+.powershop-form textarea:focus {
+    border-color: var(--powershop-red-soft);
+    box-shadow: 0 0 0 3px var(--powershop-red-tint);
+    outline: 0;
+}
+.powershop-hours {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.powershop-hours li {
+    border-bottom: 1px solid #f0f0f0;
+    color: #5f5f5f;
+    display: flex;
+    font-size: 16px;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+.powershop-hours li:last-child {
+    border-bottom: 0;
+}
+.powershop-hours li strong {
+    color: #222;
 }
 .powershop-resource-box,
 .powershop-email-panel {
@@ -818,6 +1160,12 @@ def build_css() -> str:
     min-height: 180px;
     resize: vertical;
 }
+.powershop-form-note {
+    color: #666;
+    font-size: 15px;
+    line-height: 1.7;
+    margin: 0 0 18px;
+}
 .powershop-credit {
     align-items: flex-end;
     display: flex;
@@ -829,11 +1177,27 @@ def build_css() -> str:
     margin: 0;
 }
 .powershop-credit a {
-    color: #f0d4c0 !important;
+    color: var(--powershop-red-bright) !important;
+    font-weight: 600;
 }
 .footer-top,
 footer {
     background: linear-gradient(180deg, #141719 0%, #0d1012 100%) !important;
+}
+.footer-top .foo-about .content a,
+.footer-top .foo-link ul li a i,
+.footer-top .foo-link ul li a:hover span,
+.footer-top .foo-about ul li a:after,
+.footer-bottom .top-link-button a:hover {
+    color: var(--powershop-red-bright);
+}
+.footer-top .foo-about .content a,
+.footer-top .foo-link ul li a:hover span {
+    color: var(--powershop-red-bright) !important;
+}
+.footer-top .foo-about ul li a:after,
+.footer-bottom .top-link-button a:hover {
+    background: var(--powershop-red-bright) !important;
 }
 .foo-link ul li a,
 .foo-about .content a,
@@ -854,6 +1218,9 @@ footer {
     .powershop-hero .content h2 {
         font-size: 42px;
     }
+    .powershop-hero .content {
+        padding-top: 300px;
+    }
     .powershop-credit {
         align-items: flex-start;
         text-align: left;
@@ -865,7 +1232,7 @@ footer {
         min-height: 640px;
     }
     .powershop-hero .content {
-        padding: 140px 0 100px;
+        padding: 250px 0 100px;
     }
     .powershop-hero .content h2 {
         font-size: 34px;
@@ -929,10 +1296,14 @@ def parse_pages():
     )
 
     workshop_soup = read_page("pages/talk from the workshop.html")
+    parsed["knowledge-hub.html"]["title"] = "Knowledge Hub"
+    parsed["knowledge-hub.html"]["description"] = "Useful links, workshop references and audio resources from the Oxford Powershop site."
     parsed["knowledge-hub.html"]["content_html"] = "<p>Follow Oxford Powershop for the latest repair news, workshop updates and useful audio links.</p>"
     parsed["knowledge-hub.html"]["links_html"] = workshop_links_html(workshop_soup)
+    parsed["knowledge-hub.html"]["links_items"] = workshop_links_items(workshop_soup)
 
     email_soup = read_page("pages/email me.html")
+    parsed["email-us.html"]["title"] = "Email Us"
     parsed["email-us.html"]["content_html"] = '<p>Please use the contact details below or visit the workshop in Kidlington. This static version keeps the original email page content as a layout reference.</p>'
     parsed["email-us.html"]["description"] = "Talk to an engineer, visit the workshop, or use the original contact details."
 
@@ -952,13 +1323,14 @@ def main():
     service_cards = []
     for output in SERVICE_ORDER:
         page = pages[output]
+        override = SERVICE_CARD_OVERRIDES.get(output, {})
         service_cards.append(
             {
                 "output": output,
-                "title": page["title"],
-                "short_title": page["title"].replace("Repairs & Servicing", "Repairs").replace("Repairs &", "Repair &"),
+                "title": override.get("title", page["title"]),
+                "short_title": override.get("title", page["title"]).replace("Repairs & Servicing", "Repairs").replace("Repairs &", "Repair &"),
                 "hero": page["hero"],
-                "excerpt": service_excerpt(page["content_html"]),
+                "excerpt": override.get("excerpt", service_excerpt(page["content_html"])),
             }
         )
 
