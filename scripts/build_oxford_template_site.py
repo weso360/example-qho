@@ -29,7 +29,7 @@ def sync_static_site_files():
     ensure_dir(SITE_DIR)
     for dirname in ("css", "fonts", "images", "js"):
         shutil.copytree(SOURCE_SITE_DIR / dirname, SITE_DIR / dirname, dirs_exist_ok=True)
-    for filename in ("favicon.png", "style.css", "style.scss"):
+    for filename in ("favicon.png", "favicon.svg", "style.css", "style.scss"):
         shutil.copy2(SOURCE_SITE_DIR / filename, SITE_DIR / filename)
     (SITE_DIR / ".nojekyll").write_text("", encoding="utf-8")
 
@@ -113,7 +113,8 @@ def template_head(title, description):
         <title>{html.escape(title)} | Oxford Audio Repairs</title>
         <meta name="description" content="{html.escape(description)}">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="shortcut icon" type="image/x-icon" href="favicon.png">
+        <link rel="icon" type="image/svg+xml" href="favicon.svg">
+        <link rel="shortcut icon" type="image/png" href="favicon.png">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/animate.css">
         <link rel="stylesheet" href="css/jquery-ui.min.css">
