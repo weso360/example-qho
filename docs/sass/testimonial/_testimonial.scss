@@ -1,0 +1,49 @@
+.testimonial-area{
+	display: block;
+	background:url(images/icons/bg-1.jpg);
+	.testimonial-list{
+		text-align: center;
+		position: relative;
+		padding-top: 50px;
+		&:after{
+			content:'';
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			height: 90px;
+			background: url(images/icons/1.png);
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+		blockquote{
+			font-family: $title-font;
+			font-weight: 400;
+			font-size: 40px;
+			display: block;
+			border:none;
+			padding: 0 150px;
+			line-height: 50px;
+			position: relative;
+			z-index: 999;
+		}
+		h4{
+			font-family: $title-font;
+			font-style: italic;
+			font-weight: 400;
+			font-size: 22px;
+			display: block;
+			margin: 0 0 8px;
+			a{
+				color: #212121;
+				&:hover{
+					color:$primary-color;
+				}
+			}
+		}
+		span{
+			color: $primary-color;
+			font-size: 16px;
+		}
+	}
+}

@@ -1,0 +1,235 @@
+footer{
+	.footer-top{
+		display: block;
+		padding: 100px 0 75px;
+		.foo-about{
+			.foo-logo{
+				display: block;
+				margin: 0 0 30px;
+				a{
+					display: inline-block;
+					img{
+						display: block;
+					}
+				}
+			}
+			.content{
+				margin: 0 0 20px;
+				display: block;
+				p{
+					font-size: 16px;
+					color: #fff;
+					opacity: 0.5;
+					margin: 0;
+					display: block;
+				}
+				span{
+					font-size: 30px;
+					display: block;
+					padding: 20px 0;
+					color: #fff;
+				}
+				a{
+					text-transform: uppercase;
+					color: $primary-color;
+					font-weight: 600;
+					margin-top: 10px;
+					display: inline-block;
+					i{
+						padding-left: 5px;
+					}
+					&:hover{
+						color: #fff;
+					}
+				}
+			}
+			ul{
+				margin-left: -2px;
+				li{
+					padding: 0 2px;
+					a{
+						display: block;
+						width: 50px;
+						height: 50px;
+						line-height: 50px;
+						background: rgba(255, 255, 255, 0.1);
+						text-align: center;
+						color: #fff;
+						font-size: 18px;
+						position: relative;
+						i{
+							position: relative;
+							z-index: 999;
+						}
+						&:after{
+							content: '';
+							position: absolute;
+							left: 0;
+							right: 0;
+							top: 100%;
+							bottom: 0;
+							background: $primary-color;
+							transition: $transition;
+						}
+						&:hover{
+							&:after{
+								top:0;
+							}
+						}
+					}
+				}
+			}
+
+		}
+		.weight{
+			h3{
+				font-size: 22px;
+				font-family: $title-font;
+				font-weight: 400;
+				color: #fff;
+				padding: 0 0 32px;
+				display: block;
+				position: relative;
+ 				&:after{
+					content:'';
+					position: absolute;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					height: 12px;
+					background: url(images/icons/sec1.png) no-repeat left;
+				}
+			}
+		}
+		.foo-link{
+			ul{
+				li{
+					display: block;
+					padding: 5px 0;
+					&:first-child{
+						padding-top:0;
+					}
+					&:last-child{
+						padding-bottom:0;
+					}
+					a{
+						color: #fff;
+						font-size: 16px;
+						display: inline-block;
+						i{
+							color: $primary-color;
+							display: inline-block;
+							padding-right: 8px;
+						}
+						span{
+							color: #fff;
+							opacity: 0.5;
+							display: inline-block;
+							transition: $transition;
+						}	
+						&:hover{
+							span{
+								color: $primary-color;
+								opacity: 1;
+							}
+						}
+					}
+				}
+			}
+		}
+		.insta{
+			ul{
+				display: block;
+				margin: -5px -3px;
+				li{
+					padding: 5px 3px;
+					a{
+						display: block;
+						position: relative;
+						text-align: center;
+						&:after{
+							content:'';
+							position: absolute;
+							left: 0;
+							right: 0;
+							top: 0;
+							bottom: 0;
+							opacity: 0;
+							border:4px solid $primary-color;
+							transition: $transition;
+						}
+						&:before{
+							content:'';
+							position: absolute;
+							left: 0;
+							right: 0;
+							top: 0;
+							bottom: 0;
+							background: $primary-color;
+							opacity: 0;
+							transition: $transition;
+						}
+						span{
+							position: absolute;
+							top: 40%;
+							font-size: 16px;
+							color: #fff;
+							opacity: 0;
+							left: 0;
+							right: 0;
+							transition: $transition;
+						}
+						&:hover{
+							&:after{
+								opacity:1;
+							}
+							&:before{
+								opacity:0.5;
+							}
+							span{
+								opacity: 1;
+							}
+						}
+						img{
+							width: 100%;
+						}
+					}
+				}
+			}
+		}
+		.offer{
+			.content{
+				p{
+					font-size: 16px;
+					color: #fff;
+					opacity: 0.5;
+					margin: 0 0 20px;
+				}
+				.tit{
+					color: $primary-color;
+					font-family: $title-font;
+					font-size: 22px;
+					display: block;
+					margin: 0 0 15px;
+				}
+				form{
+					display: block;
+					width: 100%;
+					input{
+						width: 100%;
+						border:1px solid #2a2a2a;
+						height: 50px;
+						line-height: 50px;
+						padding: 0 15px;
+						background: rgba(0, 0, 0, 0.1);
+						color: #fff;
+						margin: 0 0 15px;
+					}
+					button{
+
+					}
+				}
+			}
+		}
+	}
+}

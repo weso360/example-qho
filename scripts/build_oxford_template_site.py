@@ -34,6 +34,26 @@ def sync_static_site_files():
     (SITE_DIR / ".nojekyll").write_text("", encoding="utf-8")
 
 
+def mirror_local_site_to_pages():
+    ensure_dir(SITE_DIR)
+    source_names = {path.name for path in SOURCE_SITE_DIR.iterdir()}
+    for existing in list(SITE_DIR.iterdir()):
+        if existing.name == ".nojekyll":
+            continue
+        if existing.name not in source_names:
+            if existing.is_dir():
+                shutil.rmtree(existing)
+            else:
+                existing.unlink()
+    for item in SOURCE_SITE_DIR.iterdir():
+        target = SITE_DIR / item.name
+        if item.is_dir():
+            shutil.copytree(item, target, dirs_exist_ok=True)
+        else:
+            shutil.copy2(item, target)
+    (SITE_DIR / ".nojekyll").write_text("", encoding="utf-8")
+
+
 def normalise_url(url):
     return (
         url.replace("https://testsite.oxfordaudiorepair.com", "https://www.oxfordaudiorepair.com")
@@ -949,6 +969,7 @@ def main():
     duplicate("gallery.html", "more-photos.html")
     duplicate("contact.html", "contact-us.html")
     duplicate("about.html", "electronic-waste.html")
+    mirror_local_site_to_pages()
 
 
 if __name__ == "__main__":

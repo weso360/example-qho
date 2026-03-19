@@ -1,0 +1,231 @@
+.services-area-one{
+	display: block;
+	padding: 78px 0 100px;
+	background: url(images/services/bg-1.jpg);
+	.services-list{
+		.icons{
+			display: inline-block;
+			position: relative;
+			width: 100px;
+			height: 100px;
+			line-height: 100px;
+			border:1px solid $primary-color;
+			margin: 22px auto 40px;
+			background: #fff;
+			transition: $transition;
+			text-align: center;
+			cursor: pointer;
+			&:after{
+				content:'';
+				position: absolute;
+				left: 50%;
+				right: 50%;
+				top: 50%;
+				bottom: 50%;
+				background: $primary-color;
+				transition: $transition;
+			}
+			.ico-imgs{
+				width: 70px;
+				height: 70px;
+				display: block;
+				margin: 15px auto;
+				transition: $transition;
+				position: relative;
+				z-index: 999;
+				&.ico1{
+					background: url(images/services/1.png) no-repeat;
+					background-position: center;
+				}
+				&.ico2{
+					background: url(images/services/2.png) no-repeat;
+					background-position: center;
+				}
+				&.ico3{
+					background: url(images/services/3.png) no-repeat;
+					background-position: center;
+				}
+				&.ico4{
+					background: url(images/services/4.png) no-repeat;
+					background-position: center;
+				}
+			}
+			&:hover{
+				background: $primary-color;
+				transform: rotate(45deg);
+				.ico-imgs{
+					transform: rotate(-45deg);
+					&.ico1{
+						background: url(images/services/1h.png) no-repeat;
+						background-position: center;
+					}
+					&.ico2{
+						background: url(images/services/2h.png) no-repeat;
+						background-position: center;
+					}
+					&.ico3{
+						background: url(images/services/3h.png) no-repeat;
+						background-position: center;
+					}
+					&.ico4{
+						background: url(images/services/4h.png) no-repeat;
+						background-position: center;
+					}
+				}
+				&:after{
+					left: 0;
+					right: 0;
+					top: 0;
+					bottom: 0;
+				}
+			}
+		}
+		h4{
+			font-family: $title-font;
+			font-weight: 400;
+			font-size: 22px;
+			margin: 0 0 15px;
+			display: block;
+		}
+		p{
+			color: #797979;
+			font-size: 16px;
+			display: block;
+			padding: 0 14px;
+			margin: 0 0 15px;
+		}
+		a{
+			color: $primary-color;
+			font-weight: 600;
+			text-transform: uppercase;
+			i{
+				padding-left: 5px;
+				transition: $transition;
+				color: $primary-color;
+			}
+			&:hover{
+				color: #212121;
+				i{
+					padding-left: 8px;
+					color: #212121;
+				}
+			}
+		}
+	}
+}
+.services-area-two{
+	display: block;
+	padding: 100px 0 50px;
+	.services-list{
+		display: block;
+		margin: 0 0 50px;
+		.icons{
+			display: inline-block;
+			position: relative;
+			width: 100px;
+			height: 100px;
+			line-height: 100px;
+			border:1px solid $primary-color;
+			margin: 0 auto 40px;
+			background: #fff;
+			transition: $transition;
+			text-align: center;
+			cursor: pointer;
+			&:after{
+				content:'';
+				position: absolute;
+				left: 50%;
+				right: 50%;
+				top: 50%;
+				bottom: 50%;
+				background: $primary-color;
+				transition: $transition;
+			}
+			.ico-imgs{
+				width: 70px;
+				height: 70px;
+				display: block;
+				margin: 15px auto;
+				transition: $transition;
+				position: relative;
+				z-index: 999;
+				&.ico1{
+					background: url(images/services/1.png) no-repeat;
+					background-position: center;
+				}
+				&.ico2{
+					background: url(images/services/2.png) no-repeat;
+					background-position: center;
+				}
+				&.ico3{
+					background: url(images/services/3.png) no-repeat;
+					background-position: center;
+				}
+				&.ico4{
+					background: url(images/services/4.png) no-repeat;
+					background-position: center;
+				}
+			}
+			&:hover{
+				background: $primary-color;
+				transform: rotate(45deg);
+				.ico-imgs{
+					transform: rotate(-45deg);
+					&.ico1{
+						background: url(images/services/1h.png) no-repeat;
+						background-position: center;
+					}
+					&.ico2{
+						background: url(images/services/2h.png) no-repeat;
+						background-position: center;
+					}
+					&.ico3{
+						background: url(images/services/3h.png) no-repeat;
+						background-position: center;
+					}
+					&.ico4{
+						background: url(images/services/4h.png) no-repeat;
+						background-position: center;
+					}
+				}
+				&:after{
+					left: 0;
+					right: 0;
+					top: 0;
+					bottom: 0;
+				}
+			}
+		}
+		h4{
+			font-family: $title-font;
+			font-weight: 400;
+			font-size: 22px;
+			margin: 0 0 15px;
+			display: block;
+		}
+		p{
+			color: #797979;
+			font-size: 16px;
+			display: block;
+			padding: 0 14px;
+			margin: 0 0 15px;
+		}
+		a{
+			color: $primary-color;
+			font-weight: 600;
+			text-transform: uppercase;
+			i{
+				padding-left: 5px;
+				transition: $transition;
+				color: $primary-color;
+			}
+			&:hover{
+				color: #212121;
+				i{
+					padding-left: 8px;
+					color: #212121;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,144 @@
+header{
+	.main-header{
+		background: #fff;
+		float: left;
+		width: 100%;
+		.menu-area{
+			nav{
+				ul{
+					li{
+						padding: 0;
+						&:first-child{
+							a{
+								padding-left:0;
+							}
+						}
+						&:last-child{
+							float: right;
+						}
+						&.menu-btn{
+							text-align: right;
+							margin-right: 20px;
+							li{
+								line-height: 120px;
+								.search-ico{
+									display: block;
+									font-size: 20px;
+									cursor: pointer;
+									transition: $transition;
+									color:$primary-color;
+									font-weight: 700;
+								}
+								a{
+									display: inline-block;
+								}
+
+								&:last-child{
+									margin-left: 15px;
+									a{
+										padding: 0;
+									}
+								}
+								.cart-top{
+									right: 0;
+									top: 0;
+									line-height: 120px;
+									.cart-btn{
+										color: #fff;
+										display: inline-block;
+										text-align: center;
+										position: relative;
+										line-height: 30px;
+										&:hover{
+											span{
+												background:#212121;
+											}
+										}
+										i{
+										}
+										span{
+											position: absolute;
+											right: -5px;
+											bottom: -5px;
+											width: 14px;
+											height: 14px;
+											line-height: 14px;
+											border-radius: 100%;
+											color: #fff;
+											font-size: 11px;
+											background: $primary-color;
+											transition: $transition;
+										}
+									}
+								}
+							}
+						}
+						a{
+							color: #212121;
+							text-transform: capitalize;
+							display: block;
+							line-height: 120px;
+							padding: 0 18px;
+							font-size: 16px;
+							&:hover{
+								color:$primary-color;
+							}
+						}
+						&.drop-menu{
+							position: relative;
+							.down-menu{
+								background: #ffffff none repeat scroll 0 0;
+							    box-shadow: 0 0 0px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1);
+							    left: 0;
+							    margin: 0;
+							    opacity: 0;
+							    padding: 0;
+							    position: absolute;
+							    top: 120%;
+							    transition:$transition;
+							    visibility: hidden;
+							    width: 210px;
+							    z-index: 99;
+								li{
+									border-bottom: 1px solid #f4f4f4;
+    								display: block;
+    								padding: 0 !important;
+    								&:last-child{
+										float: inherit;
+									}
+									a{
+										background: #ffffff none repeat scroll 0 0;
+									    display: block;
+									    padding: 8px 18px;
+									    text-align: left;
+									    line-height: 0;
+									    text-decoration: none;
+									    text-transform: capitalize;
+									    font-size: 14px;
+									    line-height: 26px;
+									    &:hover{
+									    	background: #fafafa none repeat scroll 0 0;
+									    	color: $primary-color;
+									    }
+									    &:after{
+									    	display:none;
+									    }
+									}
+								}
+							}
+							&:hover{
+								.down-menu{
+									opacity: 1;
+								    top: 100%;
+								    visibility: visible;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	
+}

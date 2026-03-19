@@ -1,0 +1,145 @@
+.plan-price-area{
+	.plan-nav{
+		float: right;
+		margin-right: 65px;
+		ul{
+			li{
+				line-height: 60px;
+				position: relative;
+				padding: 0;
+				display: table-cell;
+				a{
+					display: block;
+					padding: 0 60px;
+					color: #383847;
+					font-size: 16px;
+					text-transform: capitalize;
+					border-left:1px solid $primary-color;
+					border-top:1px solid $primary-color;
+					border-bottom:1px solid $primary-color;
+					&:hover{
+						background:#f5f5f5;
+					}
+				}
+				&:after{
+					content:'';
+					position: absolute;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					height: 0px;
+					background: $primary-color;
+					transition: $transition;
+				}
+				&:last-child{
+					a{
+						border-right: 1px solid $primary-color;
+					}
+				}
+				&.active{
+					&:after{
+						height: 5px;
+					}
+					a{
+						color: $primary-color;
+					}
+				}
+			}
+		}
+	}
+	.plan-content{
+		.plan-list-nav{
+			ul{
+				li{
+					a{
+						display: block;
+						line-height: 70px;
+						color: #fff;
+						font-size: 16px;
+						text-transform: capitalize;
+						background: #212121;
+						position: relative;
+						&:hover{
+							background:#2f2e2e;
+						}
+						&:after{
+							content:'';
+							position: absolute;
+							left: 0;
+							top: 0;
+							bottom: 100%;
+							right: 100%;
+							background: $primary-color;
+							transition: $transition;
+						}
+						&:before{
+							content:'';
+							position: absolute;
+							right: 0;
+							bottom: 0;
+							top: 100%;
+							left: 100%;
+							background: $primary-color;
+							transition: $transition;
+						}
+						.imgs{
+							display: inline-block;
+							width: 70px;
+							text-align: center;
+							position: relative;
+							z-index: 999;
+							img{
+								display: inline-block;
+							}
+						}
+						.con{
+							display: inline-block;
+							position: relative;
+							z-index: 999;
+						}
+					}
+					&.active{
+						a{
+							&:after{
+								right:50%;
+								bottom: 0;
+							}
+							&:before{
+								left:50%;
+								top: 0;
+							}
+						}
+					}
+				}
+			}
+		}
+		.price-list{
+			border:1px solid $primary-color;
+			.planprice{
+				padding-top: 54px;
+				padding-bottom: 54px;
+				ul{
+					li{
+						display: block;
+						margin: 0 0 30px;
+						&:last-child{
+							margin:0;
+						}
+						h4{
+							margin: 0 0 10px;
+							font-family: $title-font;
+							font-weight: 400;
+							color: #212121;
+							text-transform: capitalize;
+						}
+						p{
+							font-size: 16px;
+							color: #797979;
+							margin: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+}
