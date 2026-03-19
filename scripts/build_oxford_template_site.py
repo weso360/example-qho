@@ -287,7 +287,7 @@ def footer():
                             </div>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="copyright text-center">
+                            <div class="copyright oxford-footer-credit">
                                 <p><a href="https://aivora.uk" target="_blank" rel="noreferrer noopener">Created by Aivora</a></p>
                             </div>
                         </div>
@@ -525,15 +525,20 @@ footer {
     display: inline-block;
     margin: 10px 0 14px;
 }
-footer .footer-bottom .copyright {
+footer .footer-bottom .oxford-footer-credit {
+    display: flex;
+    justify-content: flex-end;
     text-align: right !important;
 }
-footer .footer-bottom .copyright a {
+footer .footer-bottom .oxford-footer-credit p {
+    margin: 0;
+}
+footer .footer-bottom .oxford-footer-credit a {
     color: #f2d8b0 !important;
     font-weight: 600;
 }
-footer .footer-bottom .copyright a:hover,
-footer .footer-bottom .copyright a:focus {
+footer .footer-bottom .oxford-footer-credit a:hover,
+footer .footer-bottom .oxford-footer-credit a:focus {
     color: #ffffff !important;
 }
 """
