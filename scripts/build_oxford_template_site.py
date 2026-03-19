@@ -2,6 +2,7 @@
 import html
 import json
 import re
+import shutil
 import time
 import urllib.request
 from html.parser import HTMLParser
@@ -10,7 +11,8 @@ from urllib.parse import urlparse
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SITE_DIR = ROOT / "oxford-audio-rebuild"
+SOURCE_SITE_DIR = ROOT / "oxford-audio-rebuild"
+SITE_DIR = ROOT / "docs"
 BASE_API = "https://www.oxfordaudiorepair.com/wp-json/wp/v2"
 
 
@@ -21,6 +23,15 @@ def fetch_json(url):
 
 def ensure_dir(path):
     path.mkdir(parents=True, exist_ok=True)
+
+
+def sync_static_site_files():
+    ensure_dir(SITE_DIR)
+    for dirname in ("css", "fonts", "images", "js"):
+        shutil.copytree(SOURCE_SITE_DIR / dirname, SITE_DIR / dirname, dirs_exist_ok=True)
+    for filename in ("favicon.png", "style.css", "style.scss"):
+        shutil.copy2(SOURCE_SITE_DIR / filename, SITE_DIR / filename)
+    (SITE_DIR / ".nojekyll").write_text("", encoding="utf-8")
 
 
 def normalise_url(url):
@@ -909,6 +920,7 @@ def duplicate(source, target):
 
 def main():
     asset_map = {}
+    sync_static_site_files()
     ensure_dir(SITE_DIR / "images" / "oxford")
     write_css()
 

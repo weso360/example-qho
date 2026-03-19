@@ -1,0 +1,187 @@
+.oxford-logo-text a,
+.oxford-footer-logo a {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+}
+.oxford-logo-text a {
+    color: #222;
+    max-width: 170px;
+    padding-left: 0 !important;
+    white-space: normal;
+}
+.oxford-logo-text a:hover,
+.oxford-logo-text a:focus {
+    color: #c59d5f;
+}
+.oxford-logo-text {
+    align-items: center;
+    display: flex;
+    min-height: 120px;
+    padding-top: 0;
+}
+header .main-header .logo-area.oxford-logo-text a {
+    line-height: 0.9 !important;
+    padding-left: 0 !important;
+    vertical-align: middle;
+}
+.oxford-footer-logo a { font-size: 24px; }
+.oxford-footer-logo a { color: #fff; }
+.menu-area nav ul li.active > a { color: #c59d5f; }
+.oxford-search-box { display: none; }
+.section-head {
+    background: url('../images/oxford/pattern-audio-light.svg') no-repeat center !important;
+    background-size: cover !important;
+}
+.info-area-one .info-middel {
+    background: url('../images/oxford/pattern-audio-light.svg') no-repeat center !important;
+    background-size: cover !important;
+}
+.info-area-one .row {
+    align-items: stretch;
+    display: flex;
+    flex-wrap: wrap;
+}
+.info-area-one .row > div {
+    display: flex;
+}
+.info-area-one .info-list,
+.info-area-one .info-middel {
+    min-height: 520px;
+    width: 100%;
+}
+.info-area-one .info-list figure,
+.info-area-one .info-list figure img {
+    height: 520px;
+}
+.info-area-one .info-list figure img {
+    object-fit: cover;
+}
+.info-area-one .info-middel {
+    margin-top: 0 !important;
+    padding-top: 0;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.info-area-one .info-middel .content {
+    padding: 60px 25px;
+}
+.services-area-one {
+    background: url('../images/oxford/pattern-audio-dark.svg') no-repeat center !important;
+    background-size: cover !important;
+}
+footer {
+    background: url('../images/oxford/pattern-audio-warm.svg') no-repeat center !important;
+    background-size: cover !important;
+}
+.oxford-breadcumb { background-image: url('../images/oxford/CB74BB07-B9DB-4FCF-A8DE-84E4DB27FF79_1_201_a-scaled.jpeg'); background-size: cover; background-position: center; }
+.oxford-slider .item { min-height: 760px; background-size: cover; background-position: center; }
+.oxford-slider .caption-1 { background: rgba(0,0,0,0.45); min-height: 760px; }
+.oxford-slider .content { padding: 220px 0 180px; }
+.oxford-slider .content h2 { max-width: 820px; }
+.oxford-slider .content p { max-width: 760px; }
+.oxford-service .services-list { min-height: 280px; padding: 50px 30px; }
+.oxford-service .services-list .icons .ico-imgs {
+    background: none !important;
+    height: 70px;
+    width: 70px;
+}
+.oxford-service .services-list .icons .ico-imgs:before {
+    color: #cf9c67;
+    display: block;
+    font-family: FontAwesome;
+    font-size: 34px;
+    left: 50%;
+    line-height: 70px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+}
+.oxford-service .services-list .icons .ico-imgs.ico1:before { content: '1de'; }
+.oxford-service .services-list .icons .ico-imgs.ico2:before { content: '192'; }
+.oxford-service .services-list .icons .ico-imgs.ico3:before { content: '0ad'; }
+.oxford-service .services-list .icons .ico-imgs.ico4:before { content: '028'; }
+.oxford-service .services-list .icons:hover .ico-imgs:before {
+    color: #fff;
+}
+.oxford-card-grid .about-list-right figure img,
+.oxford-card-grid .about-list-left figure img { height: 270px; object-fit: cover; width: 100%; }
+.oxford-card-grid .oxford-click-card {
+    position: relative;
+}
+.oxford-card-grid .oxford-card-link {
+    inset: 0;
+    position: absolute;
+    z-index: 20;
+}
+.oxford-card-grid .oxford-click-card .content,
+.oxford-card-grid .oxford-click-card figure {
+    position: relative;
+    z-index: 5;
+}
+.oxford-card-grid .oxford-click-card:hover {
+    cursor: pointer;
+}
+.oxford-card-grid .section-heading-two h2 {
+    color: #1f1f1f;
+}
+.oxford-card-grid .section-heading-two p {
+    color: #3f3f3f;
+}
+.oxford-richtext p,
+.oxford-richtext li { color: #666; font-size: 16px; line-height: 28px; }
+.oxford-richtext ul { padding-left: 22px; margin: 0; }
+.oxford-gallery-intro { margin-bottom: 40px; }
+.oxford-gallery-grid .grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+.oxford-gallery-grid .grid-item {
+    display: flex;
+    margin-bottom: 0;
+}
+.oxford-gallery-grid .gallery-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.oxford-gallery-grid .gallery-list figure a { display: block; }
+.oxford-gallery-grid .gallery-list figure img { height: 320px; object-fit: cover; width: 100%; }
+.oxford-caption {
+    background: #fff;
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 120px;
+    padding: 18px 18px 24px;
+}
+.oxford-caption h4 { font-size: 18px; margin: 0 0 8px; }
+.oxford-caption p { color: #666; margin: 0; min-height: 48px; }
+.oxford-contact-copy { margin-bottom: 40px; }
+.oxford-contact-copy .contact-info { min-height: 220px; }
+.oxford-form-note { color: #777; margin-bottom: 26px; text-align: center; }
+.oxford-static-map { background: url('../images/icons/g-map.png') center/cover no-repeat; height: 450px; position: relative; }
+.oxford-static-map::after { background: rgba(0,0,0,0.25); content: ''; inset: 0; position: absolute; }
+.oxford-static-map-label { color: #fff; left: 50%; position: absolute; top: 50%; transform: translate(-50%, -50%); z-index: 2; text-align: center; }
+.foo-about .content span {
+    display: inline-block;
+    margin: 10px 0 14px;
+}
+footer .footer-bottom .copyright {
+    text-align: right !important;
+}
+footer .footer-bottom .copyright a {
+    color: #f2d8b0 !important;
+    font-weight: 600;
+}
+footer .footer-bottom .copyright a:hover,
+footer .footer-bottom .copyright a:focus {
+    color: #ffffff !important;
+}
