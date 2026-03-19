@@ -1,0 +1,203 @@
+.powershop-logo,
+.powershop-footer-logo {
+    align-items: center;
+    display: flex;
+    min-height: 120px;
+}
+.powershop-logo img,
+.powershop-footer-logo img {
+    max-width: 100%;
+}
+.social-media-area ul li a {
+    color: #2f2f2f;
+}
+.menu-area nav ul li.active > a,
+.menu-area nav ul li > a:hover,
+.menu-area nav ul li > a:focus {
+    color: #c53a3e;
+}
+.powershop-breadcumb {
+    background: linear-gradient(rgba(20, 20, 22, 0.74), rgba(20, 20, 22, 0.74)), url('../webpics/Large Images/workshop.jpg') center/cover no-repeat;
+}
+.powershop-hero .item {
+    background-position: center;
+    background-size: cover;
+    min-height: 780px;
+}
+.powershop-hero .caption-1 {
+    background: rgba(0, 0, 0, 0.18) !important;
+    background-image: none !important;
+    min-height: 780px;
+}
+.powershop-hero .caption-1:after {
+    background: linear-gradient(90deg, rgba(18, 18, 18, 0.88) 0%, rgba(18, 18, 18, 0.55) 52%, rgba(18, 18, 18, 0.2) 100%) !important;
+}
+.powershop-hero .content {
+    padding: 180px 0 140px;
+}
+.powershop-hero .content h2 {
+    color: #fff;
+    font-size: 60px;
+    line-height: 1.08;
+    margin-bottom: 24px;
+    max-width: 720px;
+}
+.powershop-home-intro,
+.powershop-richtext {
+    color: #4d4d4d;
+    font-size: 17px;
+    line-height: 1.8;
+}
+.powershop-hero .powershop-home-intro,
+.powershop-hero .powershop-home-intro a,
+.powershop-hero .powershop-home-intro li,
+.powershop-hero .powershop-home-intro p {
+    color: #fff;
+}
+.powershop-richtext ul,
+.powershop-home-intro ul {
+    padding-left: 20px;
+}
+.powershop-richtext a {
+    color: #c53a3e;
+}
+.powershop-side-promo,
+.powershop-inline-hero,
+.powershop-map-frame,
+.powershop-resource-box,
+.powershop-email-panel {
+    background: #fff;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+}
+.powershop-side-promo img,
+.powershop-inline-hero img {
+    display: block;
+    width: 100%;
+}
+.powershop-inline-hero {
+    margin-bottom: 40px;
+}
+.powershop-home-feature,
+.powershop-page-hero {
+    align-items: center;
+}
+.powershop-service-index,
+.services-area-one {
+    background: linear-gradient(180deg, #1f2327 0%, #23282d 100%) !important;
+}
+.powershop-service-card {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-bottom: 30px;
+}
+.powershop-service-card__image img {
+    display: block;
+    height: 230px;
+    object-fit: cover;
+    width: 100%;
+}
+.powershop-service-card__body {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    padding: 26px;
+}
+.powershop-service-card__body h3 {
+    font-size: 24px;
+    line-height: 1.25;
+    margin: 0 0 16px;
+}
+.powershop-service-card__body h3 a {
+    color: #222;
+}
+.powershop-service-card__body p {
+    color: #5f5f5f;
+    flex: 1 1 auto;
+    margin: 0 0 24px;
+}
+.powershop-callout {
+    align-items: center;
+    background: linear-gradient(135deg, #f4f1eb 0%, #ffffff 100%);
+    border-left: 6px solid #c53a3e;
+    padding: 36px 28px;
+}
+.powershop-callout h2 {
+    margin: 0 0 10px;
+}
+.powershop-map-frame iframe {
+    border: 0;
+    display: block;
+    height: 480px;
+    width: 100%;
+}
+.powershop-resource-box,
+.powershop-email-panel {
+    padding: 30px;
+}
+.powershop-form input,
+.powershop-form textarea {
+    border: 1px solid #d9d9d9;
+    margin-bottom: 18px;
+    min-height: 54px;
+    padding: 14px 16px;
+    width: 100%;
+}
+.powershop-form textarea {
+    min-height: 180px;
+    resize: vertical;
+}
+.powershop-credit {
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    text-align: right;
+}
+.powershop-credit p {
+    margin: 0;
+}
+.powershop-credit a {
+    color: #f0d4c0 !important;
+}
+.footer-top,
+footer {
+    background: linear-gradient(180deg, #141719 0%, #0d1012 100%) !important;
+}
+.foo-link ul li a,
+.foo-about .content a,
+.f-about p,
+.foo-about .content p,
+.foo-about .content span {
+    color: #d0d3d5;
+}
+.foo-link h2,
+.foo-about h2,
+.f-about h2 {
+    color: #fff;
+}
+@media (max-width: 991px) {
+    .powershop-logo img {
+        max-width: 240px;
+    }
+    .powershop-hero .content h2 {
+        font-size: 42px;
+    }
+    .powershop-credit {
+        align-items: flex-start;
+        text-align: left;
+    }
+}
+@media (max-width: 767px) {
+    .powershop-hero .item,
+    .powershop-hero .caption-1 {
+        min-height: 640px;
+    }
+    .powershop-hero .content {
+        padding: 140px 0 100px;
+    }
+    .powershop-hero .content h2 {
+        font-size: 34px;
+    }
+}

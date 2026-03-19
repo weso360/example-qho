@@ -1,0 +1,88 @@
+@charset "utf-8";
+.LeftNaBarStyles {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 34px;
+	color: #000000;
+}
+.SocialMediaTXT {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 23px;
+}
+.mainTXTtitle {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 22px;
+	font-style: normal;
+	font-weight: bold;
+}
+.mainTXTbody {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+}
+.mainTXTbullets {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+}
+.TELengineer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 24px;
+	color: #FFFFFF;
+}
+.TELnumber {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 36px;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+.TELengineerB {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 24px;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+.contactTITLES {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	color: #000000;
+}
+.contactTXT {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	color: #000000;
+}
+.contactTXTRED {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	color: #CB0900;
+}
+.SocialMediaTXTRED {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 24px;
+	font-weight: bold;
+	color: #C9070A;
+}
+.footNavStyle {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #333333;
+}
+.NewsTitles {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 24px;
+	font-weight: bold;
+	color: #333333;
+}
+.NewsTitlesSMALL {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	color: #333333;
+	font-weight: bold;
+}
+.H1 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 22px;
+	font-style: normal;
+	font-weight: bold;
+}
